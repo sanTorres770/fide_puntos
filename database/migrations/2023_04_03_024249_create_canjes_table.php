@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('producto_id');
             $table->string('cliente_id');
-            $table->timestamp('fecha_canje');
+            $table->timestamp('created_at');
+            $table->timestamp('updated_at');
         });
     }
 

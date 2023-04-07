@@ -14,7 +14,7 @@
                     @csrf
                     <input type="text" hidden value="{{$producto->id}}" name="producto_id">
                     <input type="text" hidden value="1" name="cliente_id">
-                    <button type="submit" class="btn btn-primary">{{'Lo quiero canjear por '.$producto->valor.' puntos'}}</button>
+                    <button type="submit" class="button-bicho">{{'Lo quiero canjear por '.$producto->valor.' puntos'}}</button>
                 </form>
             </div>
         </div>
