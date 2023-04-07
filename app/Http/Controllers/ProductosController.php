@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class ProductosController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth', ['except'=> ['lista']]);
+    }
+
     public function lista(){
 
         $productos = Producto::get();

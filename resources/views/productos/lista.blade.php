@@ -8,7 +8,9 @@
                     <a href="{{route('productos.detalle',$producto->id)}}"><img src="{{asset('/images/'.$producto->imagen)}}" class="card-img-top" alt="..."></a>
                     <div class="card-body" style="background-color: #718096">
                         <h5 class="card-title">{{$producto->descripcion}}</h5>
-                        <p class="card-text">{{$producto->valor.' puntos'}}</p>
+                        @auth()
+                            <p class="card-text">{{$producto->valor.' puntos'}}</p>
+                        @endauth
                     </div>
                 </div>
             </div>
