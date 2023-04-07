@@ -9,6 +9,7 @@
                     <div class="btn-group">
                         <a href="{{route('login')}}" class="btn btn-primary me-2">ingresar</a>
                         <a href="{{route('registro')}}" class="btn btn-primary">registrarse</a>
+
                     </div>
                 </div>
             </div>
