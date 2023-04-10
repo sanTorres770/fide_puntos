@@ -1,16 +1,18 @@
 <x-layouts.layout title="Inicio">
-    <div class="container col-md-6">
+    <div class="container col-md-6 mt-5">
+
+        @auth()
+        <div class="d-flex">
+            <h5 class="ms-4">{{'Bienvenido(a): '.strtoupper(\Illuminate\Support\Facades\Auth::user()->name.' '.\Illuminate\Support\Facades\Auth::user()->last_name)}}</h5>
+        </div>
+        @endauth
+
         <img src="{{URL::asset('/images/inicio.png')}}" alt="inicio">
-        <div class="h-30"></div>
-        <br>
-        <div class="h-100">
-            <div class="row w-100 align-items-center">
-                <div class="col text-center">
-                    <div class="btn-group">
-                        <a href="{{route('login')}}" class="btn btn-primary me-2">ingresar</a>
-                        <a href="{{route('registro')}}" class="btn btn-primary">registrarse</a>
-                    </div>
-                </div>
+    </div>
+    <div class="row align-items-center mt-3">
+        <div class="col text-center">
+            <div class="btn-group">
+                <a href="{{route('productos.lista')}}" class="btn btn-primary">Ingresar</a>
             </div>
         </div>
     </div>

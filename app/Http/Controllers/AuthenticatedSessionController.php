@@ -25,4 +25,14 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended()->with('status','Iniciaste sesión correctamente.');
     }
+
+    public function logout(Request $request){
+
+        Auth::guard('web')->logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return to_route('login')->with('status','Ha cerrado sesión correctamente.');
+   }
 }
