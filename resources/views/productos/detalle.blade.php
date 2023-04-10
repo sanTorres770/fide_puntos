@@ -5,8 +5,8 @@
             <div class="card-header">
                 <h5 class="card-title">{{$producto->descripcion}}</h5>
             </div>
-            <div class="card-body">
-                <p class="card-text">{{$producto->mensaje}}</p>
+            <div class="card-body ">
+                <p class="card-text ">{{$producto->mensaje}}</p>
                 <img src="{{asset('/images/'.$producto->imagen)}}" class="img-fluid" alt="imagen" width="500px" height="400px">
             </div>
             <div class="card-footer text-body-secondary">
