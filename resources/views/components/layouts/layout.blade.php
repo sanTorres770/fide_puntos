@@ -16,6 +16,9 @@
     @if(session('guardarCanje')!= null)
     <div class="alert alert-success">{{session('guardarCanje')}}</div>
     @endif
+    @if(session('status')!= null)
+        <div class="alert alert-info">{{session('status')}}</div>
+    @endif
 
     {{$slot}}
 

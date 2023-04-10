@@ -5,7 +5,7 @@
             @foreach($productos as $producto)
             <div class="col">
                 <div class="card">
-                    <a href="{{route('productos.detalle',$producto->id)}}"><img src="{{asset('/images/'.$producto->imagen)}}" class="card-img-top" alt="..."></a>
+                    <a href="{{route('productos.detalle',[$producto->id,\Illuminate\Support\Facades\Auth::user()->email])}}"><img src="{{asset('/images/'.$producto->imagen)}}" class="card-img-top" alt="..."></a>
                     <div class="card-body" style="background-color: #718096">
                         <h5 class="card-title">{{$producto->descripcion}}</h5>
                         @auth()

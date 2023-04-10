@@ -4,9 +4,16 @@
     <form action="{{route('registrar')}}" method="post">
         @csrf
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre completo" value="{{old('name')}}">
-            <label for="name">Nombre completo</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Nombre" value="{{old('name')}}">
+            <label for="name">Nombre</label>
             @error('name')
+            <small style="color: #ef4444">{{$message}}</small>
+            @enderror
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellido" value="{{old('last_name')}}">
+            <label for="last_name">Apellido</label>
+            @error('last_name')
             <small style="color: #ef4444">{{$message}}</small>
             @enderror
         </div>

@@ -1,4 +1,4 @@
-<x-layouts.layout>
+<x-layouts.layout title="Login">
 <div class="container-sm p-3 rounded-3" style="width: 30rem;max-width: 100%;background-color: #1a202c">
     <h5 class="text-center mb-3 text-white">Inicia sesión y comienza a canjear</h5>
     <form action="{{route('loguear')}}" method="post">

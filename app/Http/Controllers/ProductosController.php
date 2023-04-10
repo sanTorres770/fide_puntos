@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Requests\GuardarCanjeRequest;
 use App\Models\Canje;
 use App\Models\Producto;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ProductosController extends Controller
 {
 
     public function __construct()
     {
-        $this->middleware('auth', ['except'=> ['lista']]);
+
+        // para autorizar la entrada a las rutas segun se necesite. arreglo Except para excluir
+        $this->middleware('auth');
     }
 
     public function lista(){
@@ -23,18 +27,18 @@ class ProductosController extends Controller
 
     }
 
-    public function detalle(Producto $producto){
+    public function detalle(Producto $producto, string $user){
 
-        return view('productos.detalle',['producto'=>$producto]);
+        $puntosActuales = DB::select('select puntos from puntos_cliente where id=:id',
+        ['id'=>$user]);
+
+        $valorProducto = $producto->valor;
+
+        //se comparan los puntos del usuario y los del producto para habilitar o no su canjeo
+        $valido = $puntosActuales[0]->puntos >= $valorProducto;
+
+        return view('productos.detalle',['producto'=>$producto,'puntos'=>$puntosActuales[0]->puntos, 'valido'=>$valido]);
 
     }
 
-    public function guardarCanje(GuardarCanjeRequest $request){
-
-        Canje::create($request->validated());
-
-        return to_route('index')->with('guardarCanje','Se guardó la información correctamente.');
-
-
-    }
 }
